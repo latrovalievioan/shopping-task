@@ -1,17 +1,10 @@
 import React from 'react';
 import './App.css';
+import {getProducts} from "./api"
+import {Product} from "./types"
+import {ProductsContainer} from './components/ProductsContainer'
 
-type Product = {
-  id: number;
-  name: string;
-  slug: string;
-  material: string;
-  color: string;
-  description: string;
-  price: string;
-  currency: string;
-  image: string;
- };
+
  
 
 function App() {
@@ -19,9 +12,7 @@ function App() {
   const [products, setProducts] = React.useState<Product[]>([])
   
   React.useEffect(() => {
-    fetch("https://cors-anywhere.herokuapp.com/https://ioan-4r7sk1yfwf2q.runkit.sh/products", {
-    })
-    .then(response => response.json())
+    getProducts()
     .then((parsed:Product[]) => {
       setProducts(parsed)
     })
@@ -29,11 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <ul>
-      {products.map(product => 
-        <li key={product.id}>{product.name}</li>
-      )}
-      </ul>
+      <ProductsContainer products={products}/>
     </div>
   );
 }
