@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-const CartU = (props: { className?: string }) => {
+const BasketU = (props: { className?: string }) => {
   return <div className={props.className}>Hello World</div>
 }
 
-export const Cart = styled(CartU)`
+export const Basket = styled(BasketU)`
   background: black;
   color: white;
 `
