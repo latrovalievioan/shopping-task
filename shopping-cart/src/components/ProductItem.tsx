@@ -40,14 +40,11 @@ export const ProductItem = styled((props: {product:Product, className?: string})
             hsl(0 0% 0% / 0.2) 20%,
             hsl(0 0% 0% / 1)
         );
-        transform: translateY(70%);
-        transition: transform 500ms ease;
-
     };
 
     &:hover .product-content {
         transform: translateY(0%);
-    }
+    };
 
     & .product-title {
         position: relative;
@@ -63,19 +60,18 @@ export const ProductItem = styled((props: {product:Product, className?: string})
         background: #FEC2C2;
         left: -1.5rem;
         bottom: 0;
-        transform: scale(0);
         transform-origin: left;
         transition: transform 500ms ease;
-    }
+    };
 
     &:hover .product-title::after {
         transform: scale(1);
-    }
+    };
 
     & .product-body {
         color: rgba(255, 255, 255, 0.8);
         margin-bottom: 0.5em;
-    }
+    };
 
     & .product-price {
         display: inline-block;
@@ -85,23 +81,37 @@ export const ProductItem = styled((props: {product:Product, className?: string})
         padding: 0.5em 1.25em;
         opacity: .9;
         border-radius: .25em;
-    }
+    };
 
     & .price-add {
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
+    };
 
     & .add {
-        cursor: pointer;
-        color: #2f4c73;
         transform: scale(1.5);
-    }
+    };
 
     & .add:hover {
         color:#D5E7F2;
         transform: scale(2);
-    }
+        cursor: pointer;
+    };
+
+    @media (hover) {
+        & .product-content {
+            transform: translateY(70%);
+            transition: transform 500ms ease;
+        }
+
+        & .product-title:after {
+            transform: scale(0);
+        }
+
+        & .add {
+            color: #2f4c73;
+        };
+    };
 
 `
