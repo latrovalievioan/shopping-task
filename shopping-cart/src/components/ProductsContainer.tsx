@@ -8,9 +8,12 @@ const ProductsContainerU = (props: { className?: string }) => {
   const [products, setProducts] = React.useState<Product[]>([])
 
   React.useEffect(() => {
-    getProducts().then((parsed: Product[]) => {
+    const abortController = new AbortController()
+
+    getProducts(abortController).then((parsed: Product[]) => {
       setProducts(parsed)
     })
+    return () => abortController.abort()
   }, [])
 
   return (
@@ -27,7 +30,11 @@ export const ProductsContainer = styled(ProductsContainerU)`
   height: 100%;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
+  box-sizing: border-box;
+  padding: 20em;
   gap: 3em;
+  justify-content: center;
+  justify-items: center;
 
   @media screen and (max-width: 1600px) {
     grid-template-columns: 50% 50%;
