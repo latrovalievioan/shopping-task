@@ -15,7 +15,6 @@ const ProductsContainerU = (props: { className?: string }) => {
 
   return (
     <div className={props.className}>
-      {/* <ProductItem product={props.products[0]} /> */}
       {products.map((product) => {
         return <ProductItem product={product} />
       })}
