@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 
 export const ProductItem = styled((props: {product:Product, className?: string}) => {
-    console.log(props.product)
     return <div className={props.className}>
             <div className="product-content">
                 <h2 className="product-title">{props.product?.name}</h2>

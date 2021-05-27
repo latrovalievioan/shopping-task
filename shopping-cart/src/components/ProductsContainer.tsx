@@ -6,8 +6,21 @@ import styled from 'styled-components'
 
 
 export const ProductsContainer = styled((props: { products: Product[], className?: string}) => {
-    return <div className={props.className}><ProductItem product={props.products[0]} /></div>
+    return <div className={props.className}>
+        {/* <ProductItem product={props.products[0]} /> */}
+        {props.products.map(product => {
+            return <ProductItem product={product}/>
+        })}
+        </div>
 })`
 width: 100%;
 height: 100%;
+display: grid;
+grid-template-columns: 25% 25% 25% 25%;
+gap: 3em;
+
+@media screen and (max-width: 1600px) {
+    grid-template-columns: 25% 25%;
+}
+
 `
