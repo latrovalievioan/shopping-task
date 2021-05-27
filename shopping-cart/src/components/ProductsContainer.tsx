@@ -2,15 +2,21 @@ import React from "react"
 import { ProductItem } from "./ProductItem"
 import { Product } from "../types"
 import styled from "styled-components"
+import { getProducts } from "../api"
 
-const ProductsContainerU = (props: {
-  products: Product[]
-  className?: string
-}) => {
+const ProductsContainerU = (props: { className?: string }) => {
+  const [products, setProducts] = React.useState<Product[]>([])
+
+  React.useEffect(() => {
+    getProducts().then((parsed: Product[]) => {
+      setProducts(parsed)
+    })
+  }, [])
+
   return (
     <div className={props.className}>
       {/* <ProductItem product={props.products[0]} /> */}
-      {props.products.map((product) => {
+      {products.map((product) => {
         return <ProductItem product={product} />
       })}
     </div>
