@@ -3,7 +3,7 @@ import "./App.css"
 import { ProductsContainer } from "./components/ProductsContainer"
 import styled from "styled-components"
 import { Nav } from "./components/Nav"
-import { Basket } from "./components/Basket"
+import { Cart } from "./components/Cart"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 const AppU = (props: { className?: string }) => {
@@ -16,7 +16,7 @@ const AppU = (props: { className?: string }) => {
             <ProductsContainer />
           </Route>
           <Route path="/cart">
-            <Basket />
+            <Cart />
           </Route>
         </Switch>
       </div>

@@ -11,7 +11,7 @@ export const getProducts = (abortController: any): Promise<Product[]> => {
 }
 
 export const getBasket = (abortController: any): Promise<Basket> => {
-  return fetch(`${API_URL}/products`, { signal: abortController.signal }).then(
+  return fetch(`${API_URL}/basket`, { signal: abortController.signal }).then(
     (response) => response.json()
   )
 }

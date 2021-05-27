@@ -12,6 +12,6 @@ export type Product = {
 
 export type Basket = {
   total: number
-  numOfItems: 1
+  numOfItems: number
   items: (Product & { quantity: number })[]
 }
