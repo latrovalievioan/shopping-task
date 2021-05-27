@@ -28,6 +28,7 @@ export const App = styled(AppU)`
   background: #0b1426;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 `
 
 export default App
