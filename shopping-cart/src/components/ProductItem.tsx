@@ -10,10 +10,13 @@ export const ProductItem = styled((props: {product:Product, className?: string})
             <div className="product-content">
                 <h2 className="product-title">{props.product?.name}</h2>
                 <p className="product-body">{props.product?.description}</p>
-                <p className="product-price">
-                    <span className="price">{props.product?.price}</span>
-                    <span className="currency">{props.product?.currency}</span>
-                </p>
+                <span className="price-add">
+                    <p className="product-price">
+                        <span className="price">{props.product?.price}</span>
+                        <span className="currency">{props.product?.currency}</span>
+                    </p>
+                    <p className="add"><FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon></p>
+                </span>
             </div>
         </div>
 })`
@@ -56,9 +59,9 @@ export const ProductItem = styled((props: {product:Product, className?: string})
         content: '';
         position: absolute;
         height: 3px;
-        width: calc(100% + 1rem);
+        width: calc(100% + 1.5rem);
         background: #FEC2C2;
-        left: -1rem;
+        left: -1.5rem;
         bottom: 0;
         transform: scale(0);
         transform-origin: left;
@@ -83,4 +86,22 @@ export const ProductItem = styled((props: {product:Product, className?: string})
         opacity: .9;
         border-radius: .25em;
     }
+
+    & .price-add {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    & .add {
+        cursor: pointer;
+        color: #2f4c73;
+        transform: scale(1.5);
+    }
+
+    & .add:hover {
+        color:#D5E7F2;
+        transform: scale(2);
+    }
+
 `
