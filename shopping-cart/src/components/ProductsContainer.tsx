@@ -31,6 +31,6 @@ export const ProductsContainer = styled(ProductsContainerU)`
   gap: 3em;
 
   @media screen and (max-width: 1600px) {
-    grid-template-columns: 25% 25%;
+    grid-template-columns: 50% 50%;
   }
 `
