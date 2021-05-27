@@ -1,29 +1,29 @@
-import { Product } from '../types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import styled from 'styled-components';
+import { Product } from "../types"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons"
+import styled from "styled-components"
 
-export const ProductItem = styled(
-  (props: { product: Product; className?: string }) => {
-    return (
-      <div className={props.className}>
-        <p className="product-price">
-          <span className="price">{props.product?.price}</span>
-          <span className="currency">{props.product?.currency}</span>
-        </p>
-        <div className="product-content">
-          <h2 className="product-title">{props.product?.name}</h2>
-          <p className="product-body">{props.product?.description}</p>
-          <span className="price-add">
-            <p className="add">
-              <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon>
-            </p>
-          </span>
-        </div>
+const ProductItemU = (props: { product: Product; className?: string }) => {
+  return (
+    <div className={props.className}>
+      <p className="product-price">
+        <span className="price">{props.product?.price}</span>
+        <span className="currency">{props.product?.currency}</span>
+      </p>
+      <div className="product-content">
+        <h2 className="product-title">{props.product?.name}</h2>
+        <p className="product-body">{props.product?.description}</p>
+        <span className="price-add">
+          <p className="add">
+            <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon>
+          </p>
+        </span>
       </div>
-    );
-  }
-)`
+    </div>
+  )
+}
+
+export const ProductItem = styled(ProductItemU)`
   color: #d5e7f2;
   background-image: url(${(props) => props.product?.image});
   background-size: cover;
@@ -58,7 +58,7 @@ export const ProductItem = styled(
   }
 
   & .product-title::after {
-    content: '';
+    content: "";
     position: absolute;
     height: 3px;
     width: calc(100% + 1.5rem);
@@ -122,5 +122,5 @@ export const ProductItem = styled(
     & .add {
       color: #2f4c73;
     }
-  } ;
-`;
+  }
+`

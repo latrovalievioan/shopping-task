@@ -1,20 +1,23 @@
-import React from 'react';
-import { ProductItem } from './ProductItem';
-import { Product } from '../types';
-import styled from 'styled-components';
+import React from "react"
+import { ProductItem } from "./ProductItem"
+import { Product } from "../types"
+import styled from "styled-components"
 
-export const ProductsContainer = styled(
-  (props: { products: Product[]; className?: string }) => {
-    return (
-      <div className={props.className}>
-        {/* <ProductItem product={props.products[0]} /> */}
-        {props.products.map((product) => {
-          return <ProductItem product={product} />;
-        })}
-      </div>
-    );
-  }
-)`
+const ProductsContainerU = (props: {
+  products: Product[]
+  className?: string
+}) => {
+  return (
+    <div className={props.className}>
+      {/* <ProductItem product={props.products[0]} /> */}
+      {props.products.map((product) => {
+        return <ProductItem product={product} />
+      })}
+    </div>
+  )
+}
+
+export const ProductsContainer = styled(ProductsContainerU)`
   width: 100%;
   height: 100%;
   display: grid;
@@ -24,4 +27,4 @@ export const ProductsContainer = styled(
   @media screen and (max-width: 1600px) {
     grid-template-columns: 25% 25%;
   }
-`;
+`
