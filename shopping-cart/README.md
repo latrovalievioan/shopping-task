@@ -7,9 +7,10 @@
   - Card cart icon must be on the right side.
 - Create Nav (react router)
   - ~~Create Nav Component~~
-  - Style Nav
+  - ~~Style Nav~~
   - Use React Router
     - Fix useEffect cleanup function in productsContainer.
+    - ~~Use React Routes~~
 - Create Basket Page
 - Create Wishlist
 - Tests

@@ -31,8 +31,8 @@ export const ProductsContainer = styled(ProductsContainerU)`
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   box-sizing: border-box;
-  padding: 20em;
-  gap: 3em;
+  padding: 15rem;
+  row-gap: 4em;
   justify-content: center;
   justify-items: center;
 
