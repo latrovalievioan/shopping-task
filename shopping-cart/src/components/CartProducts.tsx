@@ -4,6 +4,7 @@ import { BasketProduct } from "./BasketProduct"
 import React from "react"
 
 const CartProductsU = (props: { className?: string; basket: Basket }) => {
+  console.log(props.basket)
   return (
     <div className={props.className}>
       <div className="title-rect">Product:</div>
@@ -20,6 +21,10 @@ const CartProductsU = (props: { className?: string; basket: Basket }) => {
           </>
         )
       })}
+      <div className="total">
+        <div className="total-items">{`Items: ${props.basket.items.length}`}</div>
+        <div className="total-price">{`Total: BGN ${props.basket.total}`}</div>
+      </div>
     </div>
   )
 }
@@ -61,5 +66,22 @@ export const CartProducts = styled(CartProductsU)`
     color: #d5e7fe;
     height: 100%;
     width: 100%;
+  }
+
+  & .total {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    color: #d5e7fe;
+    gap: 1rem;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  & .total:before {
+    content: "";
+    background-color: #fec2c2;
+    width: 10rem;
+    height: 0.1rem;
   }
 `

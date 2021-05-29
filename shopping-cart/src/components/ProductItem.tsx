@@ -81,7 +81,7 @@ export const ProductItem = styled(ProductItemU)`
 
   & .product-body {
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
   }
 
   & .product-price {
@@ -91,7 +91,7 @@ export const ProductItem = styled(ProductItemU)`
     font-size: 15px;
     color: #0b1426;
     background-color: #fec2c2;
-    padding: 0.5em 1.25em;
+    padding: 0.5rem 1.25rem;
     opacity: 0.9;
     position: absolute;
     top: 1rem;
