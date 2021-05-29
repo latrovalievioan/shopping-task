@@ -29,12 +29,14 @@ export const BasketProduct = styled(BasketProductU)`
   display: flex;
   max-height: 100%;
   max-width: 100%;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: space-around;
+  justify-content: space-between;
+  padding: 2rem;
+  color: #d5e7fe;
 
   & img {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 25%;
+    max-height: auto;
   }
 
   & .product-title {
@@ -44,5 +46,23 @@ export const BasketProduct = styled(BasketProductU)`
   & .info-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  & button {
+    border: none;
+    background-color: #8fbdd9;
+    height: 2em;
+    width: 7em;
+    border-radius: 10px;
+  }
+
+  & button:hover {
+    background-color: #d5e7fe;
+    cursor: pointer;
+    transform: scale(1.2);
   }
 `

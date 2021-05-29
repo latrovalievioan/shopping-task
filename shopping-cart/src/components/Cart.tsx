@@ -23,7 +23,7 @@ const CartU = (props: { className?: string }) => {
     <div className={props.className}>
       <CartProducts basket={basket}></CartProducts>
       <div className="price"></div>
-      <button>Checkout!</button>
+      {/* <button>Checkout!</button> */}
     </div>
   )
 }
