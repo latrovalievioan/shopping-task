@@ -16,8 +16,11 @@ export const getBasket = (abortController: any): Promise<Basket> => {
   )
 }
 
-export const addToBasket = (id: number): Promise<void> =>
-  fetch(`${API_URL}/basket/${id}`, { method: "POST" }).then((resp) => {
+export const addToBasket = (id: number, data: Product): Promise<void> =>
+  fetch(`${API_URL}/basket/${id}`, {
+    method: "POST",
+    body: JSON.stringify(data),
+  }).then((resp) => {
     if (!resp.ok) return Promise.reject(resp.statusText)
   })
 

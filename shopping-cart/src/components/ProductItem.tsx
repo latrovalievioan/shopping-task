@@ -2,6 +2,7 @@ import { Product } from "../types"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
+import { addToBasket } from "../api"
 
 const ProductItemU = (props: { product: Product; className?: string }) => {
   return (
@@ -14,7 +15,12 @@ const ProductItemU = (props: { product: Product; className?: string }) => {
         <h2 className="product-title">{props.product?.name}</h2>
         <p className="product-body">{props.product?.description}</p>
         <span className="price-add">
-          <p className="add">
+          <p
+            className="add"
+            onClick={() => {
+              addToBasket(props.product.id, props.product)
+            }}
+          >
             <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon>
           </p>
         </span>

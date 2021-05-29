@@ -14,9 +14,9 @@ const CartProductsU = (props: { className?: string; basket: Basket }) => {
       <div className="produkt product-span"></div>
       <div className="prazen product-span"></div>
       <div className="quantity product-span">
-        <span className="minus">g</span>
+        <button className="minus">g</button>
         <input type="number" />
-        <span className="plus">g</span>
+        <button className="plus">g</button>
       </div>
       <div className="price last product-span"> 500 pari</div>
     </div>
