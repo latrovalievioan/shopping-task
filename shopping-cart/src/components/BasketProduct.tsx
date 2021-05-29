@@ -9,8 +9,7 @@ const BasketProductU = (props: { className?: string; item: Product }) => {
       <div className="info-container">
         <h2 className="product-title">{props.item.name}</h2>
         <span className="price">
-          <span>{props.item.currency}</span>
-          <span>{props.item.price}</span>
+          {`${props.item.currency} ${props.item.price}`}
         </span>
         <button
           className="remove-button"

@@ -6,15 +6,17 @@ import React from "react"
 const CartProductsU = (props: { className?: string; basket: Basket }) => {
   return (
     <div className={props.className}>
-      <div className="title-rect">Product</div>
-      <div className="title-rect">Quantity</div>
-      <div className="title-rect last">Subtotal</div>
-      {props.basket.items.map((item) => {
+      <div className="title-rect">Product:</div>
+      <div className="title-rect">Quantity:</div>
+      <div className="title-rect last">Subtotal:</div>
+      {props.basket.items.map((item, i) => {
         return (
           <>
             <BasketProduct item={item} />
             <div className="product-quantity">{item.quantity}</div>
-            <div className="subtotal last product-span"> {item.price}</div>
+            <div className="subtotal last product-span">
+              {`${item.currency} ${item.price}`}
+            </div>
           </>
         )
       })}
@@ -28,20 +30,18 @@ export const CartProducts = styled(CartProductsU)`
   box-sizing: border-box;
 
   & .title-rect {
-    background-color: #fec2c2;
+    background-color: #2f4c73;
     box-sizing: border-box;
     display: flex;
-    color: #2f4c73;
-    font-weight: 600;
+    color: #d5e7fe;
+    height: 1.4rem;
+    align-items: center;
+    padding: 0.2rem;
   }
 
   & .last {
     justify-content: flex-end;
     text-align: end;
-  }
-
-  & * {
-    border: 1px solid black;
   }
 
   & .product-span {
@@ -55,8 +55,9 @@ export const CartProducts = styled(CartProductsU)`
   }
 
   & .product-quantity {
+    display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     color: #d5e7fe;
     height: 100%;
     width: 100%;
