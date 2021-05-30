@@ -12,7 +12,9 @@
     - Fix useEffect cleanup function in productsContainer.
     - ~~Use React Routes~~
 - Create Basket Page
-  - Figure how to rerender basket component when item is removed.
+  - ~~Figure how to rerender basket component when item is removed.~~
+  - ~~Implement item quantity incrementation.~~
+  - Style Page
 - Create Wishlist
 - Tests
   - Unit
