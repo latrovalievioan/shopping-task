@@ -2,12 +2,29 @@ import { Basket } from "../types"
 import styled from "styled-components"
 import { CartItem } from "./CartItem"
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"
+import { increaseItemQuantity, decreaseItemQuantity, getBasket } from "../api"
 
 const CartProductsU = (props: {
   className?: string
   basket: Basket
   setBasket: (value: Basket) => void
 }) => {
+  const decreaseQuantity = async (id: number) => {
+    await decreaseItemQuantity(id)
+    const abortController = new AbortController()
+    getBasket(abortController).then((parsed: Basket) => {
+      props.setBasket(parsed)
+    })
+  }
+  const increaseQuantity = async (id: number) => {
+    await increaseItemQuantity(id)
+    const abortController = new AbortController()
+    getBasket(abortController).then((parsed: Basket) => {
+      props.setBasket(parsed)
+    })
+  }
   return (
     <div className={props.className}>
       <div className="title-rect">Product:</div>
@@ -17,9 +34,23 @@ const CartProductsU = (props: {
         return (
           <>
             <CartItem item={item} setBasket={props.setBasket} />
-            <div className="product-quantity">{item.quantity}</div>
+            <div className="quantity">
+              <span
+                className="quantity-icon"
+                onClick={() => decreaseQuantity(item.id)}
+              >
+                <FontAwesomeIcon icon={faMinus} />
+              </span>
+              <div className="product-quantity">{item.quantity}</div>
+              <span
+                className="quantity-icon"
+                onClick={() => increaseQuantity(item.id)}
+              >
+                <FontAwesomeIcon icon={faPlus} />
+              </span>
+            </div>
             <div className="subtotal last product-span">
-              {`${item.currency} ${item.price}`}
+              {`${item.currency} ${Number(item.price) * item.quantity}`}
             </div>
           </>
         )
@@ -62,15 +93,6 @@ export const CartProducts = styled(CartProductsU)`
     color: #d5e7fe;
   }
 
-  & .product-quantity {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: #d5e7fe;
-    height: 100%;
-    width: 100%;
-  }
-
   & .total {
     grid-column: 3;
     display: flex;
@@ -86,5 +108,20 @@ export const CartProducts = styled(CartProductsU)`
     background-color: #fec2c2;
     width: 10rem;
     height: 0.1rem;
+  }
+
+  & .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #d5e7fe;
+    height: 100%;
+    width: 100%;
+    gap: 2rem;
+  }
+
+  & .quantity-icon {
+    cursor: pointer;
+    font-size: 0.6rem;
   }
 `
