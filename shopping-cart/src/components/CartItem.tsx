@@ -1,8 +1,12 @@
 import styled from "styled-components"
-import { Product } from "../types"
-import { removeFromBasket } from "../api"
+import { Product, Basket } from "../types"
+import { removeFromBasket, getBasket } from "../api"
 
-const BasketProductU = (props: { className?: string; item: Product }) => {
+const CartItemU = (props: {
+  className?: string
+  item: Product
+  setBasket: (value: Basket) => void
+}) => {
   return (
     <div className={props.className}>
       <img src={props.item.image} alt=""></img>
@@ -13,8 +17,12 @@ const BasketProductU = (props: { className?: string; item: Product }) => {
         </span>
         <button
           className="remove-button"
-          onClick={() => {
-            removeFromBasket(props.item.id)
+          onClick={async () => {
+            await removeFromBasket(props.item.id)
+            const abortController = new AbortController()
+            getBasket(abortController).then((parsed: Basket) => {
+              props.setBasket(parsed)
+            })
           }}
         >
           Remove
@@ -24,7 +32,7 @@ const BasketProductU = (props: { className?: string; item: Product }) => {
   )
 }
 
-export const BasketProduct = styled(BasketProductU)`
+export const CartItem = styled(CartItemU)`
   display: flex;
   max-height: 100%;
   max-width: 100%;

@@ -21,7 +21,7 @@ const CartU = (props: { className?: string }) => {
 
   return (
     <div className={props.className}>
-      <CartProducts basket={basket}></CartProducts>
+      <CartProducts basket={basket} setBasket={setBasket}></CartProducts>
       <div className="price"></div>
       {/* <button>Checkout!</button> */}
     </div>

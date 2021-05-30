@@ -1,10 +1,13 @@
 import { Basket } from "../types"
 import styled from "styled-components"
-import { BasketProduct } from "./BasketProduct"
+import { CartItem } from "./CartItem"
 import React from "react"
 
-const CartProductsU = (props: { className?: string; basket: Basket }) => {
-  console.log(props.basket)
+const CartProductsU = (props: {
+  className?: string
+  basket: Basket
+  setBasket: (value: Basket) => void
+}) => {
   return (
     <div className={props.className}>
       <div className="title-rect">Product:</div>
@@ -13,7 +16,7 @@ const CartProductsU = (props: { className?: string; basket: Basket }) => {
       {props.basket.items.map((item, i) => {
         return (
           <>
-            <BasketProduct item={item} />
+            <CartItem item={item} setBasket={props.setBasket} />
             <div className="product-quantity">{item.quantity}</div>
             <div className="subtotal last product-span">
               {`${item.currency} ${item.price}`}
