@@ -45,12 +45,13 @@ export const ProductItem = styled(ProductItemU)`
   }
 
   & .product-content {
-    padding: 1.5rem;
+    padding: 0.5rem;
     background: linear-gradient(
       hsl(0 0% 0% / 0),
       hsl(0 0% 0% / 0.2) 20%,
       hsl(0 0% 0% / 1)
     );
+    height: 13rem;
   }
 
   &:hover .product-content {
@@ -59,8 +60,8 @@ export const ProductItem = styled(ProductItemU)`
 
   & .product-title {
     position: relative;
-    width: max-content;
-    margin-bottom: 0.6em;
+    margin-bottom: 3ch;
+    margin-top: -1ch;
   }
 
   & .product-title::after {
