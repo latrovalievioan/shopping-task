@@ -60,8 +60,8 @@ export const ProductItem = styled(ProductItemU)`
 
   & .product-title {
     position: relative;
-    margin-bottom: 3ch;
-    margin-top: -1ch;
+    height: 6ch;
+    margin-top: -0.9ch;
   }
 
   & .product-title::after {
@@ -82,7 +82,8 @@ export const ProductItem = styled(ProductItemU)`
 
   & .product-body {
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0.5rem;
+    margin-top: 0.8rem;
+    height: 43%;
   }
 
   & .product-price {
