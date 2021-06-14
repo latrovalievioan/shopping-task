@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { Nav } from "./components/Nav"
 import { Cart } from "./components/Cart"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { Wishlist } from "./components/Wishlist"
 
 const AppU = (props: { className?: string }) => {
   return (
@@ -17,6 +18,9 @@ const AppU = (props: { className?: string }) => {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/wishlist">
+            <Wishlist />
           </Route>
         </Switch>
       </div>
